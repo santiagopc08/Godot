@@ -33,6 +33,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		move_input.y -= 1
 		
+	if position.x > 450 and position.x < 550 and position.y > 100 and position.y < 300:
+		game_over("Tanque")
+	if position.x > 650 and position.x < 750 and position.y > 400 and position.y < 600:
+		game_over("Tanque")
 	if position.x > 1100:
 		game_over("Alien")
 	

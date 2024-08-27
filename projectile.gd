@@ -18,6 +18,16 @@ func _process(_delta):
 		speed = 5
 	if position.x < 100:
 		game_over("Tanque")
+	if position.x > 280 and position.x < 320 and position.y > 120 and position.y < 160:
+		game_over("Alien")
+	if position.x > 580 and position.x < 620 and position.y > 420 and position.y < 460:
+		game_over("Alien")
+	if position.x > 720 and position.x < 760 and position.y > 160 and position.y < 200:
+		game_over("Alien")
+	if position.x > 450 and position.x < 550 and position.y > 100 and position.y < 300:
+		game_over("Alien")
+	if position.x > 650 and position.x < 750 and position.y > 400 and position.y < 600:
+		game_over("Alien")
 	#var alien_position = $alien.position 
 	#var projectile_position = $Projectile.position  
 	
