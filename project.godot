@@ -12,9 +12,6 @@ config_version=5
 
 config/name="New Game Saint"
 run/main_scene="res://control.tscn"
-<<<<<<< HEAD
-config/features=PackedStringArray("4.2", "Forward Plus")
-=======
 config/features=PackedStringArray("4.3", "Forward Plus")
->>>>>>> 29eac66 (Syncing my local project having added my drawing and an empty script for it)
 config/icon="res://icon.svg"
+<<<<<<<HEADconfig/features=PackedStringArray("4.2", "Forward Plus")

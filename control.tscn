@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://p7x1ffdnsh3h"]
+[gd_scene load_steps=7 format=3 uid="uid://p7x1ffdnsh3h"]
 
 [ext_resource type="Texture2D" uid="uid://2f2nhf18wqhl" path="res://pixil-frame-1.png" id="1_5x10t"]
 [ext_resource type="Script" path="res://Pixil-frame-Nave.gd" id="2_wj616"]
 [ext_resource type="Texture2D" uid="uid://dxinhixqwyth6" path="res://pixil-frame-0 (bullet).png" id="3_ing5d"]
 [ext_resource type="Script" path="res://bullet.gd" id="4_g6y70"]
+[ext_resource type="Texture2D" uid="uid://ctd8nc3jx0w1b" path="res://tank.png" id="5_ljwa1"]
+[ext_resource type="Script" path="res://tank.gd" id="6_dnhef"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -27,3 +29,9 @@ script = ExtResource("2_wj616")
 position = Vector2(288, 160)
 texture = ExtResource("3_ing5d")
 script = ExtResource("4_g6y70")
+
+[node name="Tank" type="Sprite2D" parent="."]
+position = Vector2(506, 486)
+scale = Vector2(0.15375, 0.163)
+texture = ExtResource("5_ljwa1")
+script = ExtResource("6_dnhef")
