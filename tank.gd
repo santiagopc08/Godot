@@ -1,18 +1,16 @@
 extends Node2D
 
+var hasShot = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_key_pressed(KEY_W):
-		position += Vector2(0, -1)
-	if Input.is_key_pressed(KEY_S):
-		position += Vector2(0, 1)
-	if Input.is_key_pressed(KEY_A):
-		position += Vector2(-1, 0)
-	if Input.is_key_pressed(KEY_D):
-		position += Vector2(1, 0)
+func _process(_delta):
+	if not hasShot:
+		if Input.is_key_pressed(KEY_W):
+			position += Vector2(0, -3)
+		if Input.is_key_pressed(KEY_S):
+			position += Vector2(0, 3)
+		if Input.is_key_pressed(KEY_A):
+			position += Vector2(-3, 0)
+		if Input.is_key_pressed(KEY_D):
+			position += Vector2(3, 0)
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		hasShot = true

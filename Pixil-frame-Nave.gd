@@ -32,6 +32,9 @@ func _process(delta):
 		move_input.y += 1
 	if Input.is_action_just_pressed("ui_up"):
 		move_input.y -= 1
+		
+	if position.x > 1100:
+		game_over("Alien")
 	
 	 # Normalizar la entrada de movimiento y aplicar la velocidad
 	move_input = move_input.normalized()*speed* delta
@@ -54,7 +57,15 @@ func shoot_bullet():
 	# Configurar la dirección de la bala
 	bullet.position = position
 	bullet.direction= direction_to_mouse 
+
+
+func game_over(winner: String):
+	# Detén el juego
+	get_tree().paused = true
+	print(winner + " ha ganado el juego!")
+	# Muestra quién ganó en la ventana emergente
+	#var label = game_over_window.get_node("Label")  # Asegúrate de que el nodo Label sea hijo del WindowDialog
+	#label.text = winner + " ha ganado el juego!"
 	
- 
- 	
-	
+	# Muestra la ventana emergente
+	#game_over_window.popup_centered()
