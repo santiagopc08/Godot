@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://387wn8y06pmu"]
+
+[ext_resource type="Script" path="res://Personaje_main/ball.gd" id="1_2oajg"]
+[ext_resource type="Texture2D" uid="uid://bys3kvllo3nv8" path="res://Asset_personaje/bala.png" id="2_g1q6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfvnl"]
+size = Vector2(57.1732, 15.9878)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_2oajg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_g1q6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.93715e-07, 7.45058e-09)
+scale = Vector2(0.139926, 0.375287)
+shape = SubResource("RectangleShape2D_mfvnl")

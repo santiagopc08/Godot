@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://p7x1ffdnsh3h"]
+[gd_scene load_steps=11 format=3 uid="uid://p7x1ffdnsh3h"]
 
 [ext_resource type="Texture2D" uid="uid://2f2nhf18wqhl" path="res://pixil-frame-1.png" id="1_5x10t"]
 [ext_resource type="Script" path="res://Pixil-frame-Nave.gd" id="2_wj616"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://projectile.gd" id="7_pnam1"]
 [ext_resource type="Texture2D" uid="uid://cj360bqdbsxub" path="res://projectile.png" id="8_7clpk"]
 [ext_resource type="Script" path="res://projectile_2.gd" id="9_0uc3x"]
+[ext_resource type="PackedScene" uid="uid://dyc7tw07qh34g" path="res://Plataforma/plataforma.tscn" id="9_yflgy"]
+[ext_resource type="PackedScene" uid="uid://dh42uxtk7dyia" path="res://Personaje_main/personaje.tscn" id="10_3u4it"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -73,3 +75,9 @@ title = "game_over_window"
 [node name="Label" type="Label" parent="popup"]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="StaticBody2D" parent="." instance=ExtResource("9_yflgy")]
+position = Vector2(298, 639)
+
+[node name="Personaje" parent="." instance=ExtResource("10_3u4it")]
+position = Vector2(54, 570)

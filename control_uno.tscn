@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://2f2nhf18wqhl" path="res://pixil-frame-1.png" id="1_yi88d"]
 [ext_resource type="Script" path="res://Pixil-frame-Nave.gd" id="2_vctex"]
 [ext_resource type="Texture2D" uid="uid://dxinhixqwyth6" path="res://pixil-frame-0 (bullet).png" id="3_ahoup"]
-[ext_resource type="Script" path="res://bullet.gd" id="4_5wmcq"]
+[ext_resource type="Script" path="res://Personaje_main/bullet.gd" id="4_5wmcq"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

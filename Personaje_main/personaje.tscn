@@ -1,0 +1,152 @@
+[gd_scene load_steps=27 format=3 uid="uid://dh42uxtk7dyia"]
+
+[ext_resource type="Script" path="res://Personaje_main/personaje.gd" id="1_ftln4"]
+[ext_resource type="Texture2D" uid="uid://ky1erotgeynl" path="res://Asset_personaje/inicial.png" id="1_ya2yb"]
+[ext_resource type="Texture2D" uid="uid://b0oy2hvv3dtnn" path="res://Asset_personaje/agachar_1.png" id="3_6a6ed"]
+[ext_resource type="Texture2D" uid="uid://csv5m0h554r78" path="res://Asset_personaje/correr_1.png" id="3_dmme1"]
+[ext_resource type="Texture2D" uid="uid://yvgnkdihn454" path="res://Asset_personaje/correr_2.png" id="4_aomip"]
+[ext_resource type="Texture2D" uid="uid://cgrftmbtndfmp" path="res://Asset_personaje/agachar_2.png" id="4_c628n"]
+[ext_resource type="Texture2D" uid="uid://bejv3hjhrsqh6" path="res://Asset_personaje/correr_3.png" id="5_ixyer"]
+[ext_resource type="Texture2D" uid="uid://b80de7uwnc1rs" path="res://Asset_personaje/agachar_3.png" id="5_qigly"]
+[ext_resource type="Texture2D" uid="uid://dfue88nxhc7n0" path="res://Asset_personaje/correr_4.png" id="6_7wn67"]
+[ext_resource type="Texture2D" uid="uid://v1m4ybtnohjr" path="res://Asset_personaje/correr_5.png" id="7_dt760"]
+[ext_resource type="Texture2D" uid="uid://drq0wtedtyww8" path="res://Asset_personaje/correr_6.png" id="8_2hpu2"]
+[ext_resource type="Texture2D" uid="uid://d0p81jrsn8wos" path="res://Asset_personaje/disparar_1.png" id="9_wop1o"]
+[ext_resource type="Texture2D" uid="uid://ddjtjq4wudv8p" path="res://Asset_personaje/disparar_2.png" id="10_nbwgc"]
+[ext_resource type="Texture2D" uid="uid://7ovfbr4ri5kc" path="res://Asset_personaje/morir_1.png" id="11_5h2kx"]
+[ext_resource type="Texture2D" uid="uid://bornd5bgcdgtw" path="res://Asset_personaje/morir_2.png" id="12_o2amj"]
+[ext_resource type="Texture2D" uid="uid://xqeq3o6a601w" path="res://Asset_personaje/morir_3.png" id="13_j5ufg"]
+[ext_resource type="Texture2D" uid="uid://cpe4tty77n6c2" path="res://Asset_personaje/morir_4.png" id="14_x7lb2"]
+[ext_resource type="Texture2D" uid="uid://criip221j2xfr" path="res://Asset_personaje/morir_5.png" id="15_ef1sg"]
+[ext_resource type="Texture2D" uid="uid://2stkv8tgulao" path="res://Asset_personaje/morir_6.png" id="16_c1r2p"]
+[ext_resource type="Texture2D" uid="uid://diico7fh7yio0" path="res://Asset_personaje/saltar_1.png" id="17_bf8lr"]
+[ext_resource type="Texture2D" uid="uid://qrf3owjw20xv" path="res://Asset_personaje/saltar_2.png" id="18_civeg"]
+[ext_resource type="Texture2D" uid="uid://dtnh16sklirma" path="res://Asset_personaje/saltar_3.png" id="19_xauw6"]
+[ext_resource type="Texture2D" uid="uid://da5xqbypvl8xd" path="res://Asset_personaje/saltar_4.png" id="20_j80bc"]
+[ext_resource type="Texture2D" uid="uid://bmi8rhklmraft" path="res://Asset_personaje/saltar_5.png" id="21_my80n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qt7wh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6a6ed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c628n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qigly")
+}],
+"loop": true,
+"name": &"agachar",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_j80bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_my80n")
+}],
+"loop": true,
+"name": &"caer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dmme1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aomip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ixyer")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7wn67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dt760")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2hpu2")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_wop1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nbwgc")
+}],
+"loop": true,
+"name": &"disparar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_5h2kx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o2amj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j5ufg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_x7lb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ef1sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_c1r2p")
+}],
+"loop": true,
+"name": &"morir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ya2yb")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_bf8lr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_civeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xauw6")
+}],
+"loop": true,
+"name": &"saltar",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blkfg"]
+radius = 34.0
+height = 94.0
+
+[node name="Personaje" type="CharacterBody2D"]
+script = ExtResource("1_ftln4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_ya2yb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qt7wh")
+animation = &"disparar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_blkfg")
