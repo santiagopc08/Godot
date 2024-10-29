@@ -57,12 +57,12 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 		if not is_walking:  # Si no se está reproduciendo el sonido
-			$running.play()  # Reproduce el sonido de caminar
+			#$running.play()  # Reproduce el sonido de caminar
 			is_walking = true  # Marcar como caminando
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_walking:  # Si estaba caminando
-			$running.stop()  # Detener el sonido de caminar
+			#$running.stop()  # Detener el sonido de caminar
 			is_walking = false  # Marcar como no caminando
 	
 	# Manejar Disparo
