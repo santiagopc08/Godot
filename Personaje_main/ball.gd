@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 	if not get_viewport_rect().has_point(position):
 		queue_free()
 
-func _on_body_entered(body):
+func _on_body_entered():
 	queue_free()  # Eliminar el proyectil al colisionar con otro objeto

@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://p7x1ffdnsh3h"]
+[gd_scene load_steps=10 format=3 uid="uid://p7x1ffdnsh3h"]
 
-[ext_resource type="Texture2D" uid="uid://2f2nhf18wqhl" path="res://pixil-frame-1.png" id="1_5x10t"]
-[ext_resource type="Script" path="res://Pixil-frame-Nave.gd" id="2_wj616"]
-[ext_resource type="Texture2D" uid="uid://dxinhixqwyth6" path="res://pixil-frame-0 (bullet).png" id="3_ing5d"]
-[ext_resource type="Texture2D" uid="uid://ctd8nc3jx0w1b" path="res://tank.png" id="5_ljwa1"]
-[ext_resource type="Script" path="res://tank.gd" id="6_dnhef"]
-[ext_resource type="Script" path="res://projectile.gd" id="7_pnam1"]
-[ext_resource type="Texture2D" uid="uid://cj360bqdbsxub" path="res://projectile.png" id="8_7clpk"]
-[ext_resource type="Script" path="res://projectile_2.gd" id="9_0uc3x"]
+[ext_resource type="PackedScene" uid="uid://00bf7mngodb5" path="res://Puente/puente.tscn" id="1_1frwi"]
+[ext_resource type="PackedScene" uid="uid://biojwprxuflsj" path="res://Suelo/suelo.tscn" id="1_1xvnw"]
+[ext_resource type="AudioStream" uid="uid://duis2hhsrrxsq" path="res://Audio_ambient/Sunda Arc - Daemon(Remix).mp3" id="1_r3lm7"]
+[ext_resource type="Texture2D" uid="uid://cqa5idsof4b7d" path="res://Asset_Fondo/fondo5.png" id="1_t6fq0"]
+[ext_resource type="Script" path="res://musica_fondo.gd" id="2_b6y7d"]
+[ext_resource type="PackedScene" uid="uid://btaft3o86j1be" path="res://Enemy_2/enemy_2.tscn" id="4_wfynm"]
+[ext_resource type="PackedScene" uid="uid://bb2htvusepo8l" path="res://Enemy_1/enemy1.tscn" id="5_03hjm"]
 [ext_resource type="PackedScene" uid="uid://dyc7tw07qh34g" path="res://Plataforma/plataforma.tscn" id="9_yflgy"]
 [ext_resource type="PackedScene" uid="uid://dh42uxtk7dyia" path="res://Personaje_main/personaje.tscn" id="10_3u4it"]
 
@@ -23,61 +22,49 @@ offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Pixil-frame-0(bullet)" type="Sprite2D" parent="."]
-position = Vector2(300, 150)
-texture = ExtResource("3_ing5d")
-script = ExtResource("9_0uc3x")
+[node name="MusicaFondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_r3lm7")
+autoplay = true
+script = ExtResource("2_b6y7d")
 
-[node name="Pixil-frame-0(bullet)" type="Sprite2D" parent="Pixil-frame-0(bullet)"]
-position = Vector2(450, 50)
-texture = ExtResource("3_ing5d")
-script = ExtResource("9_0uc3x")
+[node name="Fondo5" type="Sprite2D" parent="."]
+position = Vector2(2112, 380)
+texture = ExtResource("1_t6fq0")
 
-[node name="Pixil-frame-0(bullet)2" type="Sprite2D" parent="Pixil-frame-0(bullet)"]
-position = Vector2(300, 300)
-texture = ExtResource("3_ing5d")
-script = ExtResource("9_0uc3x")
+[node name="Puente" parent="." instance=ExtResource("1_1frwi")]
+position = Vector2(5784, 352)
 
-[node name="Tank" type="Sprite2D" parent="."]
-position = Vector2(1055, 542)
-scale = Vector2(0.15375, 0.163)
-texture = ExtResource("5_ljwa1")
-script = ExtResource("6_dnhef")
+[node name="Suelo3" parent="." instance=ExtResource("1_1xvnw")]
+position = Vector2(4841, 416)
 
-[node name="Projectile" type="Sprite2D" parent="."]
-position = Vector2(943, 504)
-scale = Vector2(0.2, 0.11)
-texture = ExtResource("8_7clpk")
-script = ExtResource("7_pnam1")
+[node name="Suelo2" parent="." instance=ExtResource("1_1xvnw")]
+position = Vector2(4002, 416)
 
-[node name="alien" type="Sprite2D" parent="."]
-position = Vector2(60, 100)
-scale = Vector2(0.251, 0.286)
-texture = ExtResource("1_5x10t")
-script = ExtResource("2_wj616")
+[node name="Suelo" parent="." instance=ExtResource("1_1xvnw")]
+position = Vector2(3161, 416)
 
-[node name="Projectile2" type="Sprite2D" parent="."]
-position = Vector2(700, 500)
-rotation = 1.5708
-scale = Vector2(1.465, 0.25)
-texture = ExtResource("8_7clpk")
-script = ExtResource("9_0uc3x")
+[node name="StaticBody2D5" parent="." instance=ExtResource("9_yflgy")]
+position = Vector2(2636, 311)
 
-[node name="Projectile2" type="Sprite2D" parent="Projectile2"]
-position = Vector2(-200, 752)
-scale = Vector2(1.0031, 1.36105)
-texture = ExtResource("8_7clpk")
-script = ExtResource("9_0uc3x")
+[node name="StaticBody2D4" parent="." instance=ExtResource("9_yflgy")]
+position = Vector2(2059, 403)
+rotation = -0.306477
 
-[node name="popup" type="Popup" parent="."]
-title = "game_over_window"
+[node name="StaticBody2D3" parent="." instance=ExtResource("9_yflgy")]
+position = Vector2(1470, 493)
 
-[node name="Label" type="Label" parent="popup"]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="StaticBody2D2" parent="." instance=ExtResource("9_yflgy")]
+position = Vector2(890, 563)
+rotation = -0.241537
 
 [node name="StaticBody2D" parent="." instance=ExtResource("9_yflgy")]
 position = Vector2(298, 639)
 
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_03hjm")]
+position = Vector2(73, 519)
+
+[node name="enemy2" parent="." instance=ExtResource("4_wfynm")]
+position = Vector2(345, 518)
+
 [node name="Personaje" parent="." instance=ExtResource("10_3u4it")]
-position = Vector2(54, 570)
+position = Vector2(481, 552)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dh42uxtk7dyia"]
+[gd_scene load_steps=30 format=3 uid="uid://dh42uxtk7dyia"]
 
 [ext_resource type="Script" path="res://Personaje_main/personaje.gd" id="1_ftln4"]
 [ext_resource type="Texture2D" uid="uid://ky1erotgeynl" path="res://Asset_personaje/inicial.png" id="1_ya2yb"]
@@ -24,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://dtnh16sklirma" path="res://Asset_personaje/saltar_3.png" id="19_xauw6"]
 [ext_resource type="Texture2D" uid="uid://da5xqbypvl8xd" path="res://Asset_personaje/saltar_4.png" id="20_j80bc"]
 [ext_resource type="Texture2D" uid="uid://bmi8rhklmraft" path="res://Asset_personaje/saltar_5.png" id="21_my80n"]
+[ext_resource type="AudioStream" uid="uid://xoinr3fk3x0o" path="res://Audio_shot/shot.mp3" id="25_2w3tf"]
+[ext_resource type="AudioStream" uid="uid://dtdvfv02fjcgw" path="res://Audio_running/running.mp3" id="26_4g2en"]
+[ext_resource type="AudioStream" uid="uid://c6fhg4hkdi3ng" path="res://Audio_jumping/jumpland.wav" id="27_1tf0n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qt7wh"]
 animations = [{
@@ -144,9 +147,26 @@ visible = false
 texture = ExtResource("1_ya2yb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-37, 12)
 sprite_frames = SubResource("SpriteFrames_qt7wh")
 animation = &"disparar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CapsuleShape2D_blkfg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="shot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_2w3tf")
+volume_db = -4.0
+pitch_scale = 3.69
+playback_type = 1
+
+[node name="running" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_4g2en")
+volume_db = -4.0
+
+[node name="jumping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_1tf0n")
+volume_db = -4.0

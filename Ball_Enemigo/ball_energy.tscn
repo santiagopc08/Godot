@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn27270h5mlhp"]
+
+[ext_resource type="Texture2D" uid="uid://dge8kb2we844n" path="res://Asset_Ball_Enemigo/Ball-enemigo.png" id="1_ntc3q"]
+[ext_resource type="Script" path="res://Ball_Enemigo/ball_energy.gd" id="1_v25gh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0v3s"]
+radius = 21.2132
+
+[node name="Ball_Energy" type="RigidBody2D"]
+script = ExtResource("1_v25gh")
+
+[node name="Ball-enemigo" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+texture = ExtResource("1_ntc3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_e0v3s")

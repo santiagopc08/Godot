@@ -1,0 +1,77 @@
+[gd_scene load_steps=14 format=3 uid="uid://btaft3o86j1be"]
+
+[ext_resource type="Script" path="res://enemy_2.gd" id="1_8at56"]
+[ext_resource type="Texture2D" uid="uid://bpv07hjkfc0rt" path="res://Asset_Enemigo_2/B_inicial-removebg-preview.png" id="2_yvqjl"]
+[ext_resource type="Texture2D" uid="uid://clr0elmc43iau" path="res://Asset_Enemigo_2/B_atacar_1-removebg-preview.png" id="3_k3x04"]
+[ext_resource type="Texture2D" uid="uid://lsgsvopogdu1" path="res://Asset_Enemigo_2/B_atacar_2-removebg-preview.png" id="4_h1ijt"]
+[ext_resource type="Texture2D" uid="uid://bd2l8mqpli2cv" path="res://Asset_Enemigo_2/B_atacar_3-removebg-preview.png" id="5_458l8"]
+[ext_resource type="Texture2D" uid="uid://d4edqtrijbkvv" path="res://Asset_Enemigo_2/B_caminar_1-removebg-preview.png" id="6_od4yt"]
+[ext_resource type="Texture2D" uid="uid://ctdh7eiwq8isc" path="res://Asset_Enemigo_2/B_caminar_2-removebg-preview.png" id="7_jcrur"]
+[ext_resource type="Texture2D" uid="uid://cxqmtqk5kvu2e" path="res://Asset_Enemigo_2/B_caminar_3-removebg-preview.png" id="8_jp86c"]
+[ext_resource type="Texture2D" uid="uid://dc8m1css53at8" path="res://Asset_Enemigo_2/B_morir-removebg-preview.png" id="9_clgjw"]
+[ext_resource type="AudioStream" uid="uid://bxsupaq2juxue" path="res://Audio_Enemy_2/monster.mp3" id="10_cxhny"]
+[ext_resource type="AudioStream" uid="uid://cx3yc7s46vvwk" path="res://Audio_Enemy_2/runngin_monster.mp3" id="11_253qd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2g8jp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k3x04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h1ijt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_458l8")
+}],
+"loop": true,
+"name": &"atacar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_od4yt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jcrur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jp86c")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_clgjw")
+}],
+"loop": true,
+"name": &"morir",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j01s1"]
+radius = 37.0
+height = 142.0
+
+[node name="enemy2" type="CharacterBody2D"]
+script = ExtResource("1_8at56")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yvqjl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2g8jp")
+animation = &"caminar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_j01s1")
+
+[node name="growl" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_cxhny")
+volume_db = -4.0
+
+[node name="running" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_253qd")
+volume_db = 8.0

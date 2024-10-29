@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://duis2hhsrrxsq"
+path="res://.godot/imported/Sunda Arc - Daemon(Remix).mp3-6fc14fc7645b29324adc1181c152c846.mp3str"
+
+[deps]
+
+source_file="res://Audio_ambient/Sunda Arc - Daemon(Remix).mp3"
+dest_files=["res://.godot/imported/Sunda Arc - Daemon(Remix).mp3-6fc14fc7645b29324adc1181c152c846.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

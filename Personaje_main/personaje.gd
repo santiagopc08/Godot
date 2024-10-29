@@ -8,6 +8,7 @@ var shoot_timer = 0  # Temporizador para controlar el tiempo entre disparos
 var bullet_scene = preload("res://Personaje_main/ball.tscn")  # Cargar la escena del proyectil
 var last_direction_right = true  # Variable para almacenar la última dirección
 
+var is_walking = false
 
 func animar():
 	# Prioridad: si está disparando
@@ -47,14 +48,22 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$jumping.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
+	# Manejar movimiento
 	if direction:
 		velocity.x = direction * SPEED
+		if not is_walking:  # Si no se está reproduciendo el sonido
+			$running.play()  # Reproduce el sonido de caminar
+			is_walking = true  # Marcar como caminando
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_walking:  # Si estaba caminando
+			$running.stop()  # Detener el sonido de caminar
+			is_walking = false  # Marcar como no caminando
 	
 	# Manejar Disparo
 	shoot_timer -= delta
@@ -69,18 +78,25 @@ func _physics_process(delta: float) -> void:
 
 func shoot():
 	var bullet = bullet_scene.instantiate() # Instanciar el proyectil
+	
 	# Posicionar el proyectil en la posición del personaje
 	if last_direction_right: 
-		bullet.position = position +Vector2(20,0)
+		bullet.position = position + Vector2(0, 0)  # Posición a la derecha
 	else:
-		position + Vector2(-20,0)
+		bullet.position = position + Vector2(0, 0)  # Posición a la izquierda
+	
+	# Reproducir el sonido de disparo
+	$shot.play()
+
 	# Configurar la dirección del proyectil
 	if last_direction_right:
-		bullet.direction = Vector2(1,0)
+		bullet.direction = Vector2(1, 0)  # Dirección a la derecha
 	else:
-		Vector2(-1,0)
+		bullet.direction = Vector2(-1, 0)  # Dirección a la izquierda
+
 	# Añadir el proyectil a la escena
 	get_parent().add_child(bullet)
+
 	
 	
 # Reproducir la animación de disparo
