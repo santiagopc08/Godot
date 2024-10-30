@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://p7x1ffdnsh3h"]
+[gd_scene load_steps=23 format=3 uid="uid://p7x1ffdnsh3h"]
 
 [ext_resource type="PackedScene" uid="uid://00bf7mngodb5" path="res://Puente/puente.tscn" id="1_1frwi"]
 [ext_resource type="PackedScene" uid="uid://biojwprxuflsj" path="res://Suelo/suelo.tscn" id="1_1xvnw"]
@@ -9,11 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://bb2htvusepo8l" path="res://Enemy_1/enemy1.tscn" id="5_03hjm"]
 [ext_resource type="PackedScene" uid="uid://dyc7tw07qh34g" path="res://Plataforma/plataforma.tscn" id="9_yflgy"]
 [ext_resource type="PackedScene" uid="uid://dh42uxtk7dyia" path="res://Personaje_main/personaje.tscn" id="10_3u4it"]
+[ext_resource type="PackedScene" uid="uid://bn27270h5mlhp" path="res://Ball_Enemigo/ball_energy.tscn" id="10_8gnef"]
 [ext_resource type="Script" path="res://tanque.gd" id="10_rw4xl"]
 [ext_resource type="Texture2D" uid="uid://ctd8nc3jx0w1b" path="res://tank.png" id="11_le45j"]
 [ext_resource type="AudioStream" uid="uid://dq0so23lkdkqc" path="res://Audio_motor/motor.mp3" id="12_78uqn"]
+[ext_resource type="PackedScene" uid="uid://umxwvi7yddbn" path="res://menu.tscn" id="13_kpnby"]
+[ext_resource type="Texture2D" uid="uid://bmt4ve2d687rj" path="res://Asset_Decoracion/cloud1.png" id="15_u0wet"]
+[ext_resource type="Texture2D" uid="uid://dgtkiihvhophp" path="res://Asset_Decoracion/cloud2.png" id="16_xq4sm"]
+[ext_resource type="Texture2D" uid="uid://d3r2ilhf10536" path="res://Asset_Decoracion/tree1.png" id="17_0ibfo"]
+[ext_resource type="Texture2D" uid="uid://7q2s56xtr31b" path="res://Asset_Decoracion/tree2.png" id="18_lbqcd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw13e"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d125g"]
+size = Vector2(139.439, 100)
 
 [sub_resource type="Animation" id="Animation_p3qgu"]
 resource_name = "tanimation"
@@ -88,70 +95,104 @@ offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MusicaFondo" type="AudioStreamPlayer2D" parent="."]
+[node name="Control2" parent="." instance=ExtResource("13_kpnby")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MusicaFondo" type="AudioStreamPlayer2D" parent="Control"]
 stream = ExtResource("1_r3lm7")
 autoplay = true
 script = ExtResource("2_b6y7d")
 
-[node name="Fondo5" type="Sprite2D" parent="."]
+[node name="Fondo5" type="Sprite2D" parent="Control"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+self_modulate = Color(0.741385, 0.741385, 0.741385, 1)
 position = Vector2(2112, 380)
 texture = ExtResource("1_t6fq0")
 
-[node name="Puente" parent="." instance=ExtResource("1_1frwi")]
+[node name="Puente" parent="Control" instance=ExtResource("1_1frwi")]
 position = Vector2(5784, 352)
 
-[node name="Suelo3" parent="." instance=ExtResource("1_1xvnw")]
+[node name="Suelo3" parent="Control" instance=ExtResource("1_1xvnw")]
 position = Vector2(4841, 416)
 
-[node name="Suelo2" parent="." instance=ExtResource("1_1xvnw")]
+[node name="Suelo2" parent="Control" instance=ExtResource("1_1xvnw")]
 position = Vector2(4002, 416)
 
-[node name="Suelo" parent="." instance=ExtResource("1_1xvnw")]
+[node name="Suelo" parent="Control" instance=ExtResource("1_1xvnw")]
 position = Vector2(3161, 416)
 
-[node name="StaticBody2D5" parent="." instance=ExtResource("9_yflgy")]
+[node name="StaticBody2D5" parent="Control" instance=ExtResource("9_yflgy")]
 position = Vector2(2636, 311)
 
-[node name="StaticBody2D4" parent="." instance=ExtResource("9_yflgy")]
+[node name="StaticBody2D4" parent="Control" instance=ExtResource("9_yflgy")]
 position = Vector2(2059, 403)
 rotation = -0.306477
 
-[node name="StaticBody2D3" parent="." instance=ExtResource("9_yflgy")]
+[node name="StaticBody2D3" parent="Control" instance=ExtResource("9_yflgy")]
 position = Vector2(1470, 493)
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("9_yflgy")]
+[node name="StaticBody2D2" parent="Control" instance=ExtResource("9_yflgy")]
 position = Vector2(890, 563)
 rotation = -0.241537
+scale = Vector2(1, 1)
 
-[node name="StaticBody2D" parent="." instance=ExtResource("9_yflgy")]
+[node name="StaticBody2D" parent="Control" instance=ExtResource("9_yflgy")]
 position = Vector2(298, 639)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_03hjm")]
-position = Vector2(73, 519)
+[node name="CharacterBody2D" parent="Control" instance=ExtResource("5_03hjm")]
+position = Vector2(350, 528)
 
-[node name="enemy2" parent="." instance=ExtResource("4_wfynm")]
-position = Vector2(345, 518)
+[node name="enemy2" parent="Control" instance=ExtResource("4_wfynm")]
+position = Vector2(454, 533)
 
-[node name="Personaje" parent="." instance=ExtResource("10_3u4it")]
-position = Vector2(481, 552)
+[node name="Ball_Energy" parent="Control" instance=ExtResource("10_8gnef")]
+position = Vector2(1125, 437)
 
-[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+[node name="Personaje" parent="Control" instance=ExtResource("10_3u4it")]
+position = Vector2(586, 548)
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="Control"]
 position = Vector2(300, 500)
 scale = Vector2(0.2, 0.2)
 script = ExtResource("10_rw4xl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-shape = SubResource("RectangleShape2D_hw13e")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/CharacterBody2D2"]
+position = Vector2(-810.977, 200)
+scale = Vector2(9.8391, 6.15794)
+shape = SubResource("RectangleShape2D_d125g")
+one_way_collision = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Control/CharacterBody2D2"]
+position = Vector2(-980.361, 319.725)
 texture = ExtResource("11_le45j")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D2/Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/CharacterBody2D2/Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_hct7h")
 }
 autoplay = "tanimation"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody2D2"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/CharacterBody2D2"]
 stream = ExtResource("12_78uqn")
 volume_db = -1.69
+
+[node name="Cloud1" type="Sprite2D" parent="Control"]
+position = Vector2(352, 147)
+texture = ExtResource("15_u0wet")
+
+[node name="Cloud2" type="Sprite2D" parent="Control"]
+position = Vector2(870, 139)
+texture = ExtResource("16_xq4sm")
+
+[node name="Tree1" type="Sprite2D" parent="Control"]
+position = Vector2(1363, 333)
+texture = ExtResource("17_0ibfo")
+
+[node name="Tree2" type="Sprite2D" parent="Control"]
+position = Vector2(1258, 333)
+texture = ExtResource("18_lbqcd")
